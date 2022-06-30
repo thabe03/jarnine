@@ -1,3 +1,4 @@
+# coding=utf-8
 import lire
 import creer
 import sqlite3
