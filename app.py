@@ -132,7 +132,10 @@ def creerpage():
 
 app.secret_key = 'super secret key'
 #app.run(host='0.0.0.0', port=5000)
- 
+#set FLASK_APP=app.py
+#pip install pytz
+#pip install Flask
+#flask run
 
 
 
