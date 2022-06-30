@@ -13,10 +13,6 @@ import pytz
 conn = sqlite3.connect('annonce.db', check_same_thread=False)
 cursor = conn.cursor()
 database.database()
-row = lire.lire()
-
-for r in row:
-  print(r)
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 def allowed_file(filename):
@@ -26,6 +22,9 @@ app = Flask(__name__) #__name__ self fichier __main__
 
 @app.route('/') #run par défaut
 def indexpage():
+  row = lire.lire()
+  for r in row:
+    print(r)
   return render_template('index.html',infos=row)
 
 @app.route('/docs') #run par défaut
@@ -131,8 +130,8 @@ def creerpage():
   return render_template('index.html')
 
 app.secret_key = 'super secret key'
-#app.run(host='0.0.0.0', port=5000)
-#set FLASK_APP=app.py
+app.run(host='0.0.0.0', port=5000) #retrieve
+#set FLASK_APP=main.py
 #pip install pytz
 #pip install Flask
 #flask run
