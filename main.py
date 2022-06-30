@@ -8,13 +8,6 @@ import os
 from werkzeug.utils import secure_filename
 from datetime import datetime
 import pytz
-from http.server import BaseHTTPRequestHandler
-from urllib import parse
-
-class handler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        self.wfile.write(message.encode())
-        return
 
 conn = sqlite3.connect('annonce.db', check_same_thread=False)
 cursor = conn.cursor()
@@ -137,7 +130,6 @@ def creerpage():
   return render_template('index.html')
 
 app.secret_key = 'super secret key'
-app.run(host='0.0.0.0', port=5000)
  
 
 
